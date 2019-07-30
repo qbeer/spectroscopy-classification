@@ -1,0 +1,4 @@
+src/data/*.txt
+.vscode/
+Pipfile.lock
+.ipynb_checkpoints/
