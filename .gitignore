@@ -1,4 +1,5 @@
 src/data/*.txt
+src/data/*.png
 .vscode/
 Pipfile.lock
 .ipynb_checkpoints/

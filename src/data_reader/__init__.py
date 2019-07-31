@@ -1,1 +1,1 @@
-from reader import DataReader
+from .reader import extract
