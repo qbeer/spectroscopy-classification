@@ -1,8 +1,8 @@
-src/data/*.txt
-src/data/*.xlsx
-src/data/KISSEJTES/*.png
-src/data/ADENO/*.png
-src/data/PLANO/*.png
+src/data/*/*.txt
+src/data/*/*.xlsx
+src/data/*/KISSEJTES/*.png
+src/data/*/ADENO/*.png
+src/data/*/PLANO/*.png
 src/data/*.png
 .vscode/
 Pipfile.lock

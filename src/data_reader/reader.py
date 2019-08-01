@@ -21,9 +21,9 @@ def read_images(start, end, width, height, df):
                 imgs[n, _x, _y] = df[_y * width + _x, n + 4]
 
 
-def extract(processors=4):
+def extract(processors=4, subset='train/'):
     global shared_array
-    files = glob.glob("src/data/*.xlsx")
+    files = glob.glob("src/data/" + subset + "*.xlsx")
     images = []
 
     for file_path in files:
@@ -60,8 +60,8 @@ def extract(processors=4):
             res = np.clip(np.exp(-res), 0, 1)
             if np.std(res) > 0.01 and np.mean(res) > 0.01 and np.mean(
                     res) < 0.99:
-                plt.imsave(os.getcwd() + "/src/data/" + tumor_type + "/" +
-                           file_name.replace(".xlsx", "_%d.png" % ind),
+                plt.imsave(os.getcwd() + "/src/data/" + subset + tumor_type +
+                           "/" + file_name.replace(".xlsx", "_%d.png" % ind),
                            res,
                            vmin=0,
                            vmax=1)
