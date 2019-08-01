@@ -27,6 +27,7 @@ def extract(processors=4):
     images = []
 
     for file_path in files:
+        print(file_path)
         df = pd.read_excel(file_path)
         image_per_spectrum = df.columns.size - 4
         n_spectrum = df.values.shape[0]
@@ -56,7 +57,9 @@ def extract(processors=4):
         file_name = file_path.split("/")[-1]
 
         for ind, res in enumerate(result):
-            if np.mean(res) > 0.01: # exclude black ones
+            res = np.clip(np.exp(-res), 0, 1)
+            if np.std(res) > 0.01 and np.mean(res) > 0.01 and np.mean(
+                    res) < 0.99:
                 plt.imsave(os.getcwd() + "/src/data/" + tumor_type + "/" +
                            file_name.replace(".xlsx", "_%d.png" % ind),
                            res,
