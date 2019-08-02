@@ -1,3 +1,3 @@
 from src import extract
 
-extract()
+extract(subset='validation/')
